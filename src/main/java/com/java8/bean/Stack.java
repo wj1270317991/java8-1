@@ -5,7 +5,7 @@ import java.util.EmptyStackException;
 
 /**
  * com.java8.bean
- * <strong>描述：</strong>
+ * <strong>描述：垃圾回收机制，需要自己手动释放</strong>
  * <strong>功能：</strong>
  * <strong>使用场景：</strong>
  * <strong>注意事项：</strong>

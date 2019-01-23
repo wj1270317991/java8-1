@@ -3,6 +3,10 @@ package com.java8.demo1;
 import com.java8.bean.Person;
 import com.java8.bean.PersonBuilder;
 import com.java8.bean.Stack;
+import com.java8.bean.Value;
+import com.java8.decorator.Jidan;
+import com.java8.decorator.JidanNoodle;
+import com.java8.decorator.Noodle;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -89,7 +93,22 @@ public class EffectiveJavaTest {
     }
 
 
+    @Test
+    public void finalTest(){
+        Value value = new Value(23);
+        value.say();
+    }
 
+
+    /**
+     * 装饰者模式，但是个人感觉就是依赖注入
+     */
+    @Test
+    public void decoratorTest(){
+
+        Jidan instance = Jidan.instance(new JidanNoodle());
+        System.out.println(instance.descriptin());
+    }
 
 
 
