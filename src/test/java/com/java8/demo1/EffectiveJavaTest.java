@@ -1,9 +1,6 @@
 package com.java8.demo1;
 
-import com.java8.bean.Person;
-import com.java8.bean.PersonBuilder;
-import com.java8.bean.Stack;
-import com.java8.bean.Value;
+import com.java8.bean.*;
 import com.java8.decorator.Jidan;
 import com.java8.decorator.JidanNoodle;
 import com.java8.decorator.Noodle;
@@ -14,7 +11,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -101,7 +100,7 @@ public class EffectiveJavaTest {
 
 
     /**
-     * 装饰者模式，但是个人感觉就是依赖注入
+     * 装饰者模式，但是个人感觉就是依赖注入，
      */
     @Test
     public void decoratorTest(){
@@ -111,10 +110,26 @@ public class EffectiveJavaTest {
     }
 
 
+    /**
+     * 思想是为了类层次的扩展，思想没有问题
+     * 这是一个错误的案例，静态变量只初始化了一次
+     */
+    @Test
+    public void classAndInterfaceTest1(){
+        double area = Circle.instance(1.00).area();
+        System.out.println(area);
+        Circle instance1 = Circle.instance(3.00);
+        Circle instance2 = Circle.instance(4.00);
+        System.out.println(instance1 == instance2);
+        System.out.println(instance1.area());
+        System.out.println(instance2.area());
+    }
 
 
-
-
+    @Test
+    public void classAndInterfaceTest2(){
+        return;
+    }
 
 
 
