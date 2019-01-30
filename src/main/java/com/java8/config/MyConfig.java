@@ -3,6 +3,7 @@ package com.java8.config;
 import com.java8.condition.LinuxCondition;
 import com.java8.demo1.model.Person;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
 
@@ -18,18 +19,19 @@ import org.springframework.context.annotation.Configuration;
  */
 
 @Configuration
+@ComponentScan(basePackages = {"com.java8.aware"})
 public class MyConfig {
 
-    @Conditional(LinuxCondition.class)
-    @Bean
-    public Person person(){
-        return new Person("bill",62);
-    }
-
-
-
-    @Bean
-    public Person person2(){
-        return new Person("bill",62);
-    }
+//    @Conditional(LinuxCondition.class)
+//    @Bean
+//    public Person person(){
+//        return new Person("bill",62);
+//    }
+//
+//
+//
+//    @Bean
+//    public Person person2(){
+//        return new Person("bill",62);
+//    }
 }

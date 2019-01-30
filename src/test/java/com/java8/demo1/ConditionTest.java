@@ -1,5 +1,6 @@
 package com.java8.demo1;
 
+import com.java8.aware.Rainbow;
 import com.java8.config.MyConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,6 +26,17 @@ public class ConditionTest {
     public void test1(){
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(MyConfig.class);
         String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
+        for (int i = 0;i<beanDefinitionNames.length;i++){
+            System.out.println(beanDefinitionNames[i]);
+        }
+    }
+
+
+    @Test
+    public void test2(){
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(Rainbow.class);
+        String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
         System.out.println(beanDefinitionNames);
     }
+
 }
