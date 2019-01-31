@@ -2,6 +2,7 @@ package com.java8.config;
 
 import com.java8.condition.LinuxCondition;
 import com.java8.demo1.model.Person;
+import com.java8.factorybean.ColorFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
@@ -31,5 +32,11 @@ public class MyConfig {
     @Bean
     public Person person2(){
         return new Person("bill",62);
+    }
+
+
+    @Bean
+    public ColorFactoryBean colorFactoryBean(){
+        return new ColorFactoryBean();
     }
 }
