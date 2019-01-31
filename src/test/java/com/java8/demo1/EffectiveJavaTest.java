@@ -8,13 +8,11 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.util.CollectionUtils;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -132,11 +130,50 @@ public class EffectiveJavaTest {
     }
 
 
+    @Test
+    public void genericTest1(){
+        List<Integer> list = new ArrayList<>();
+        list.add(100);
+        list.add(2);
+        list.add(3);
+        list.add(101);
+        list.add(5);
+        Integer max = max(list);
+    }
 
 
+    /**
+     * 迭代器，指针一直往下走，next一次就往下走一次
+     * @param list
+     * @param <T>
+     * @return
+     */
+    public static <T extends Comparable<T>> T max(List<T> list){
+        Iterator<T> iterator = list.iterator();
+        T result = iterator.next();
+        while (iterator.hasNext()){
+            T t = iterator.next();
+            if (t.compareTo(result)>0) {
+                result = t;
+            }
+        }
+        return result;
+    }
 
 
+    /**
+     * List<? super T>适用于添加元素，只能添加T类型或其子类类型。
+     * 因为这些类型都能转换为？表示的类型（向上转型），因此我们可以对此list添加元素。
+     * 只能用Object类型来接收获取到的元素，但是这些元素原本的类型会丢失，因此最好不要使用此泛型来获取元素。
+     */
+    @Test
+    public void superTest(){
+        List<? super Integer> foo3 = new ArrayList<Integer>();
+        List<? super Integer> foo4 = new ArrayList<Number>();
+        List<? super Integer> foo5 = new ArrayList<Object>();
+        Number aa = 12;
+        //foo4.add(aa);
 
-
+    }
 
 }
