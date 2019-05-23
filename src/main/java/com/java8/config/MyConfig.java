@@ -1,11 +1,13 @@
 package com.java8.config;
 
+import com.java8.annotaion.MyImportSelector;
 import com.java8.condition.LinuxCondition;
 import com.java8.demo1.model.Person;
 import com.java8.factorybean.ColorFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.*;
 
 /**
  * com.java8.config
@@ -19,6 +21,8 @@ import org.springframework.context.annotation.Configuration;
  */
 
 @Configuration
+@ComponentScan({"com.java8.aware","com.java8.beanpostprocessor"})
+@Import({MyImportSelector.class})
 public class MyConfig {
 
     @Conditional(LinuxCondition.class)

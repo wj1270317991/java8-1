@@ -1,5 +1,7 @@
 package com.java8.demo1.model;
 
+import org.springframework.stereotype.Component;
+
 import java.util.Objects;
 
 /**
@@ -12,9 +14,14 @@ import java.util.Objects;
  * @author: wangjun
  * @date: 2018/9/27.
  */
+
+@Component
 public class Person {
     public String name;
     public int age;
+
+    public Person() {
+    }
 
     public Person(String name, int age) {
         this.name = name;

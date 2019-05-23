@@ -1,6 +1,8 @@
 package com.java8.demo1;
 
 import com.java8.config.MyConfig;
+import com.java8.enums.MyEnum;
+import com.sun.org.apache.xpath.internal.operations.String;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -25,5 +27,6 @@ public class AnnotationTest {
         Object colorFactoryBean = applicationContext.getBean("&colorFactoryBean");
         System.out.println("bean 类型："+color.getClass());
         System.out.println("bean 类型："+colorFactoryBean.getClass());
+
     }
 }
